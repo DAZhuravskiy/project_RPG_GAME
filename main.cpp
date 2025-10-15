@@ -1,12 +1,13 @@
 #include <iostream>
 #include <cstdlib>
-
+#include <time.h>
 void generate() {
-	char matrix[3][4];
+	srand(time(NULL)); //вот эта штука позволяет реально рандомить карту, а не выводить одни и те же комбинации
+	char matrix[7][9];
 	int x;
-	for (int stroki = 0; stroki < 3; ++stroki) {
+	for (int stroki = 0; stroki < 7; ++stroki) {
 		std::cout << std::endl;
-		for (int stolbi = 0; stolbi < 4; ++stolbi) {
+		for (int stolbi = 0; stolbi < 9; ++stolbi) {
 			x = (rand() % 3);
 			switch (x)
 			{
@@ -28,11 +29,9 @@ void generate() {
 			std::cout << matrix[stroki][stolbi] << ' ';
 		}
 	}
-	
 }
-
-
 int main()
+
 {
 	generate();
 }
