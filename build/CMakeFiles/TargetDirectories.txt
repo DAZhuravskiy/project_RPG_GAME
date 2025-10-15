@@ -1,0 +1,3 @@
+/Users/dmitrij/Documents/GitHub/project_RPG_GAME/build/CMakeFiles/test.dir
+/Users/dmitrij/Documents/GitHub/project_RPG_GAME/build/CMakeFiles/edit_cache.dir
+/Users/dmitrij/Documents/GitHub/project_RPG_GAME/build/CMakeFiles/rebuild_cache.dir
