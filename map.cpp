@@ -1,37 +1,39 @@
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
-void generate() {
+#include <vector>
+int generate() {
+	// так как значение массива( типа matrix[4][5]) нормально вытащить из функции нельзя( ну или можно но костялями какимито) разумней будет использовать для генерации карты std::vector
 	srand(time(NULL)); //вот эта штука позволяет реально рандомить карту, а не выводить одни и те же комбинации
-	char matrix[7][9];
-	int x;
-	for (int stroki = 0; stroki < 7; ++stroki) {
+	int len = 10;
+	std::vector<char> matrix(len * len, '0');// здесь мы задает вектора matrix который по сути будет нашей картой в виде цепочки нулей.
+	for (int i = 0; i < len * len - 1;) {
 		std::cout << std::endl;
-		for (int stolbi = 0; stolbi < 9; ++stolbi) {
-			x = (rand() % 3);
-			switch (x)
-			{
-			case 0:
-				matrix[stroki][stolbi] = '0';
-				break;
-			case 1:
-				matrix[stroki][stolbi] = '*';
-				break;
-			case 2:
-				matrix[stroki][stolbi] = '@';
-				break;
-			default:
-				break;
+		int x;
+
+		for (int k = 0; k < len; k++) {
+			x = rand() % 3;
+			switch (x) {
+			case 0: matrix[i] = '0'; break;
+			case 1: matrix[i] = '*'; break;
+			case 2: matrix[i] = '0'; break;
+
 			}
-
-
-			//matrix[stroki][stolbi] = x;
-			std::cout << matrix[stroki][stolbi] << ' ';
+			i++;
+			//т.к. вектор является цепочкой из элементов, для генерации случайных карт нужно зарандомить значение каждого элемента этой последовательности
 		}
 	}
-}
-int main()
+	for (int i = 0; i < len * len - 1 - 1;) {
 
-{
+		std::cout << std::endl;
+		for (int k = 0; k < len; k++) {
+			std::cout << matrix[i] << ' ';
+			i++;
+		}
+	}
+	return 0;
+}
+int main(){
+
 	generate();
 }
