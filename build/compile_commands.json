@@ -1,8 +1,8 @@
 [
 {
   "directory": "/Users/dmitrij/Documents/GitHub/project_RPG_GAME/build",
-  "command": "/usr/bin/c++   -g -std=c++17 -arch arm64 -o CMakeFiles/test.dir/main.cpp.o -c /Users/dmitrij/Documents/GitHub/project_RPG_GAME/main.cpp",
-  "file": "/Users/dmitrij/Documents/GitHub/project_RPG_GAME/main.cpp",
-  "output": "CMakeFiles/test.dir/main.cpp.o"
+  "command": "/usr/bin/c++   -g -std=c++17 -arch arm64 -o CMakeFiles/map.dir/map.cpp.o -c /Users/dmitrij/Documents/GitHub/project_RPG_GAME/map.cpp",
+  "file": "/Users/dmitrij/Documents/GitHub/project_RPG_GAME/map.cpp",
+  "output": "CMakeFiles/map.dir/map.cpp.o"
 }
 ]

@@ -63,11 +63,11 @@ CMAKE_BINARY_DIR = /Users/dmitrij/Documents/GitHub/project_RPG_GAME/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/test.dir/all
+all: CMakeFiles/map.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/test.dir/codegen
+codegen: CMakeFiles/map.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/test.dir/clean
+clean: CMakeFiles/map.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/test.dir
+# Target rules for target CMakeFiles/map.dir
 
 # All Build rule for target.
-CMakeFiles/test.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dmitrij/Documents/GitHub/project_RPG_GAME/build/CMakeFiles --progress-num=1,2 "Built target test"
-.PHONY : CMakeFiles/test.dir/all
+CMakeFiles/map.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map.dir/build.make CMakeFiles/map.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map.dir/build.make CMakeFiles/map.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dmitrij/Documents/GitHub/project_RPG_GAME/build/CMakeFiles --progress-num=1,2 "Built target map"
+.PHONY : CMakeFiles/map.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test.dir/rule: cmake_check_build_system
+CMakeFiles/map.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dmitrij/Documents/GitHub/project_RPG_GAME/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/map.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dmitrij/Documents/GitHub/project_RPG_GAME/build/CMakeFiles 0
-.PHONY : CMakeFiles/test.dir/rule
+.PHONY : CMakeFiles/map.dir/rule
 
 # Convenience name for target.
-test: CMakeFiles/test.dir/rule
-.PHONY : test
+map: CMakeFiles/map.dir/rule
+.PHONY : map
 
 # codegen rule for target.
-CMakeFiles/test.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dmitrij/Documents/GitHub/project_RPG_GAME/build/CMakeFiles --progress-num=1,2 "Finished codegen for target test"
-.PHONY : CMakeFiles/test.dir/codegen
+CMakeFiles/map.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map.dir/build.make CMakeFiles/map.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dmitrij/Documents/GitHub/project_RPG_GAME/build/CMakeFiles --progress-num=1,2 "Finished codegen for target map"
+.PHONY : CMakeFiles/map.dir/codegen
 
 # clean rule for target.
-CMakeFiles/test.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/clean
-.PHONY : CMakeFiles/test.dir/clean
+CMakeFiles/map.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map.dir/build.make CMakeFiles/map.dir/clean
+.PHONY : CMakeFiles/map.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
