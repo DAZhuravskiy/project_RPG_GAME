@@ -42,7 +42,7 @@ void generate() {
     while(true) {
   system("clear");
     printMap();
-    char move = getch();
+    char move = getch(); //не ждем нажатия enter после ввода символа
     move = std::tolower(move);
 
     if (move == 'q'){
@@ -57,7 +57,7 @@ void generate() {
     else if (move == 'd') newY++;
     else continue;
 
-    if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10 && matrix[newX][newY] != '#') {
+    if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10 && matrix[newX][newY] != '#') { //ограничения по краям карты и камням
         matrix[playerX][playerY] = ' ';
         playerX = newX;
         playerY = newY;
