@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <conio.h>
 
 void generate() {
   srand(time(NULL)); //вот эта штука позволяет реально рандомить карту, а не выводить одни и те же комбинации
@@ -10,7 +11,7 @@ void generate() {
   for (int stroki = 0; stroki < 10; ++stroki) { //создаем матрицу, полностью состоящую из нулей
     std::cout << std::endl;
     for (int stolbi = 0; stolbi < 10; ++stolbi) {
-      matrix[stroki][stolbi] = '0';
+      matrix[stroki][stolbi] = ' ';
     }
   }
 
@@ -25,10 +26,11 @@ void generate() {
   do {
     playerX = (rand() % 10);
     playerY = (rand() % 10);
-  } while (matrix[playerX][playerY] == '#');
+  } while (matrix[playerX][playerY] == '#'); //проверяем чтобы клетка не была занята "камнем"
   matrix[playerX][playerY] = '@';
 
-  auto printMap = [&](void){
+  auto printMap = [&](void){ //создаем функцию внутри фнкции (лямбда-функция)
+    //auto сам определяет переменную printMap, [&] позволяет видеть переменные из внешней функци 
     for (int i = 0; i<10; i++){ //выводим матрицу
         std::cout << std::endl;
         for (int j = 0; j<10; j++){
@@ -38,8 +40,9 @@ void generate() {
   };
   
     while(true) {
+  system("clear");
     printMap();
-    char move = _getch();
+    char move = getch();
     move = std::tolower(move);
 
     if (move == 'q'){
@@ -55,7 +58,7 @@ void generate() {
     else continue;
 
     if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10 && matrix[newX][newY] != '#') {
-        matrix[playerX][playerY] == '0';
+        matrix[playerX][playerY] = ' ';
         playerX = newX;
         playerY = newY;
         matrix[playerX][playerY] = '@';
