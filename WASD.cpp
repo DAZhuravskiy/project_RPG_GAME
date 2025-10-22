@@ -70,5 +70,6 @@ void generate() {
 
 int main() {
     setlocale(LC_ALL, "Russian");
+    std::cout << "q - выход из игры" << std::endl << "wasd - передвижение" << std::endl << "@ - это вы" << std::endl << "# - это камни, на них наступить не получится)";
     generate();
 }
