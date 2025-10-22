@@ -28,11 +28,6 @@ void generate() {
   } while (matrix[playerX][playerY] == '#');
   matrix[playerX][playerY] = '@';
 
-  for (int i = 0; i < 1; i++){ //добавляем нужное кол-во персонажей
-    x = (rand() % 10);
-    y = (rand() % 10);
-    matrix[x][y] = '@';
-  }
   auto printMap = [&](void){
     for (int i = 0; i<10; i++){ //выводим матрицу
         std::cout << std::endl;
