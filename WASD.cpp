@@ -35,20 +35,6 @@ void generate() {
         matrix[x][y] = '$';
     }
 
-	for (int i = 0; i < 2; i++) { // добавляем два баффа к здороьвю
-        x = rand() % 10;
-        y = rand() % 10;
-        if (matrix[x][y] == ' ')
-            matrix[x][y] = '+';
-
-	int enemyX, enemyY;
-    int enemyHP = 2 + rand() % 4; // от 2 до 5 хп у врага
-    do {
-        enemyX = rand() % 10;
-        enemyY = rand() % 10;
-    } while (matrix[enemyX][enemyY] != ' ');
-    matrix[enemyX][enemyY] = '&';
-
     int playerX;
     int playerY;
     do {
@@ -111,21 +97,6 @@ void generate() {
             std::cout << "Выход из игры\n";
             break;
         }
-
-		if (matrix[newX][newY] == '+') {
-            hp++;
-		}
-
-		if (matrix[newX][newY] == '&') {
-            std::cout << "Вы столкнулись с врагом! Его HP = " << enemyHP << std::endl;
-            if (hp >= enemyHP) {
-                std::cout << "Вы победили врага!" << std::endl;
-                matrix[enemyX][enemyY] = ' ';
-            } else {
-                std::cout << "Вы проиграли... Игра окончена." << std::endl;
-                break;
-            }
-		}
     }
 }
 
