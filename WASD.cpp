@@ -8,6 +8,7 @@ void generate() {
     int x; //переменные, принимающие случайное значение для заполнения карты объектами
     int y;
     int hp = 3; //Здоровье персонажа
+    int coins = 0; // Баланс игрока
 
     for (int i = 0; i < 10; ++i) { //создаем матрицу, полностью состоящую из нулей
         std::cout << std::endl;
@@ -28,6 +29,12 @@ void generate() {
         matrix[x][y] = '*';
     }
 
+    for (int i = 0; i < 5; i++) { //добавдяем в нее нужное кол-во монеток
+        x = (rand() % 10);
+        y = (rand() % 10);
+        matrix[x][y] = '$';
+    }
+
     int playerX;
     int playerY;
     do {
@@ -38,7 +45,7 @@ void generate() {
 
     auto printMap = [&](void) { //создаем функцию внутри фнкции (лямбда-функция)
         //auto сам определяет переменную printMap, [&] позволяет видеть переменные из внешней функци 
-        std::cout << "Текущее здоровье = " << hp << std::endl; //вывод количества здоровья
+        std::cout << "Текущее здоровье = " << hp <<  "Текущее баланс = " << coins  std::endl; //вывод количества здоровья
         for (int i = 0; i < 10; i++) { //выводим матрицу
             std::cout << std::endl;
             for (int j = 0; j < 10; j++) {
@@ -59,6 +66,12 @@ void generate() {
             std::cout << "Выход из игры\n";
             break;
         }
+
+        if (move == 'e') {
+            std::cout << "Ваш баланс монет: " << coins << std::endl;
+            continue;
+        }
+
         int newX = playerX;
         int newY = playerY;
         if (move == 'w') newX--;
@@ -66,6 +79,10 @@ void generate() {
         else if (move == 's') newX++;
         else if (move == 'd') newY++;
         else continue;
+
+        if (matrix[newX][newY] == '$') {
+            coins++;
+        }
 
         if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10 && matrix[newX][newY] != '#' && matrix[newX][newY] != '*') { //ограничения по краям карты и камням и шипам
             matrix[playerX][playerY] = ' ';
@@ -90,5 +107,7 @@ int main() {
     std::cout << "@ - это вы" << std::endl;
     std::cout << "# - это камни, на них наступить не получится)" << std::endl;
     std::cout << "* - это шипы, они отнимают здоровье)" << std::endl;
+     std::cout << "e - показать баланс монет" << std::endl;
+    std::cout << "$ - монетки, прибавляют баланс" << std::endl;
     generate();
 }
