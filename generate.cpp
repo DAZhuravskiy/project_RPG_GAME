@@ -1,6 +1,9 @@
+#include "func.hpp"
+
 #include <iostream>
 #include <cstdlib>
 #include <conio.h>
+
 
 void generate() {
     srand(time(NULL)); //вот эта штука позволяет реально рандомить карту, а не выводить одни и те же комбинации
@@ -35,6 +38,20 @@ void generate() {
         matrix[x][y] = '$';
     }
 
+	for (int i = 0; i < 2; i++) { // добавляем два баффа к здороьвю
+        x = rand() % 10;
+        y = rand() % 10;
+        if (matrix[x][y] == ' ')
+            matrix[x][y] = '+';
+    }
+	int enemyX, enemyY;
+    int enemyHP = 2 + rand() % 4; // от 2 до 5 хп у врага
+    do {
+        enemyX = rand() % 10;
+        enemyY = rand() % 10;
+    } while (matrix[enemyX][enemyY] != ' ');
+    matrix[enemyX][enemyY] = '&';
+
     int playerX;
     int playerY;
     do {
@@ -43,9 +60,10 @@ void generate() {
     } while (matrix[playerX][playerY] == '#'); //проверяем чтобы клетка не была занята "камнем"
     matrix[playerX][playerY] = '@';
 
+
     auto printMap = [&](void) { //создаем функцию внутри фнкции (лямбда-функция)
         //auto сам определяет переменную printMap, [&] позволяет видеть переменные из внешней функци 
-        std::cout << "Текущее здоровье = " << hp <<  "Текущее баланс = " << coins  std::endl; //вывод количества здоровья
+        std::cout << "Текущее здоровье = " << hp <<  "Текущее баланс = " << coins << std::endl; //вывод количества здоровья
         for (int i = 0; i < 10; i++) { //выводим матрицу
             std::cout << std::endl;
             for (int j = 0; j < 10; j++) {
@@ -97,17 +115,20 @@ void generate() {
             std::cout << "Выход из игры\n";
             break;
         }
-    }
-}
 
-int main() {
-    setlocale(LC_ALL, "Russian");
-    std::cout << "q - выход из игры" << std::endl;
-    std::cout << "wasd - передвижение" << std::endl;
-    std::cout << "@ - это вы" << std::endl;
-    std::cout << "# - это камни, на них наступить не получится)" << std::endl;
-    std::cout << "* - это шипы, они отнимают здоровье)" << std::endl;
-     std::cout << "e - показать баланс монет" << std::endl;
-    std::cout << "$ - монетки, прибавляют баланс" << std::endl;
-    generate();
+		if (matrix[newX][newY] == '+') {
+            hp++;
+		}
+
+		if (matrix[newX][newY] == '&') {
+            std::cout << "Вы столкнулись с врагом! Его HP = " << enemyHP << std::endl;
+            if (hp >= enemyHP) {
+                std::cout << "Вы победили врага!" << std::endl;
+                matrix[enemyX][enemyY] = ' ';
+            } else {
+                std::cout << "Вы проиграли... Игра окончена." << std::endl;
+                break;
+            }
+		}
+    }
 }
