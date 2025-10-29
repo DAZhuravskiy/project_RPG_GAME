@@ -1,8 +1,9 @@
 #include "func.hpp"
 #include <iostream>
+#include <Windows.h>
 
 int main() {
-    setlocale(LC_ALL, "Russian");
+    SetConsoleOutputCP(CP_UTF8);
     instruction();
     generate();
 }
