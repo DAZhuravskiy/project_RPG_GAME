@@ -63,7 +63,7 @@ void generate() {
 
     auto printMap = [&](void) { //создаем функцию внутри фнкции (лямбда-функция)
         //auto сам определяет переменную printMap, [&] позволяет видеть переменные из внешней функци 
-        std::cout << "Текущее здоровье = " << hp <<  " Текущий баланс = " << coins << std::endl; //вывод количества здоровья
+        std::cout << "\nТекущее здоровье = " << hp <<  "\nТекущий баланс = " << coins << std::endl; //вывод количества здоровья
         for (int i = 0; i < 10; i++) { //выводим матрицу
             std::cout << std::endl;
             for (int j = 0; j < 10; j++) {
@@ -106,6 +106,18 @@ void generate() {
             coins++;
         }
 
+        if (matrix[newX][newY] == '&') {
+            std::cout << "\nВы столкнулись с врагом! Его HP = " << enemyHP << std::endl;
+            if (hp >= enemyHP) {
+                std::cout << "Вы победили врага!" << std::endl;
+                matrix[enemyX][enemyY] = ' ';
+                break;
+            } else {
+                std::cout << "Вы проиграли... Игра окончена." << std::endl;
+                break;
+            }
+		}
+
         if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10 && matrix[newX][newY] != '#' && matrix[newX][newY] != '*') { //ограничения по краям карты и камням и шипам
             matrix[playerX][playerY] = ' ';
             playerX = newX;
@@ -120,15 +132,6 @@ void generate() {
             break;
         }
 
-		if (matrix[newX][newY] == '&') {
-            std::cout << "Вы столкнулись с врагом! Его HP = " << enemyHP << std::endl;
-            if (hp >= enemyHP) {
-                std::cout << "Вы победили врага!" << std::endl;
-                matrix[enemyX][enemyY] = ' ';
-            } else {
-                std::cout << "Вы проиграли... Игра окончена." << std::endl;
-                break;
-            }
-		}
+		
     }
 }

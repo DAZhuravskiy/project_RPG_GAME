@@ -6,6 +6,6 @@ void instruction(){
     std::cout << "@ - это вы" << std::endl;
     std::cout << "# - это камни, на них наступить не получится)" << std::endl;
     std::cout << "* - это шипы, они отнимают здоровье)" << std::endl;
-    std::cout << "e - показать баланс монет" << std::endl;
+    //std::cout << "e - показать баланс монет" << std::endl;
     std::cout << "$ - монетки, прибавляют баланс" << std::endl;
 }
