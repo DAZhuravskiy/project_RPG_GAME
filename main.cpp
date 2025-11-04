@@ -1,4 +1,4 @@
-#include "func.hpp"
+#include "main_functions.hpp"
 #include <iostream>
 #include <Windows.h>
 
