@@ -29,8 +29,5 @@ void generate() {
     
     printMap(hp, coins);
 
-    
-
-
     wasd(hp, coins, playerX, playerY, enemyHP, enemyX, enemyY);
 }
