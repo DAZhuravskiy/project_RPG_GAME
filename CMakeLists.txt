@@ -8,4 +8,4 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 # Сказать программе, что должен быть исполняемый файл
-add_executable("${PROJECT_NAME}"main.cpp generate.cpp instruction.cpp matrix_includes.cpp matrix_create.cpp enemies.cpp player.cpp wasd_mechanics.cpp start_end_screen.cpp)
+add_executable("${PROJECT_NAME}"main.cpp generate.cpp instruction.cpp map_generate_include.cpp movement_mechanics.cpp start_end_screen.cpp)
