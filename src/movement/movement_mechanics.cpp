@@ -1,4 +1,4 @@
-#include "generate_functions.hpp"
+#include "C:\Users\KAVychuzhin\Documents\GitHub\project_RPG_GAME\include\generate_functions.hpp"
 
 #include <iostream>
 #include <conio.h>
@@ -50,13 +50,13 @@ void wasd(int& hp, int& coins, int& playerX, int& playerY, int& enemyHP, int& en
             }
 		}
 
-        if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10 && matrix[newX][newY] != '#' && matrix[newX][newY] != '*') { //ограничения по краям карты и камням и шипам
+        if (newX >= 0 && newX < 20 && newY >= 0 && newY < 20 && matrix[newX][newY] != '#' && matrix[newX][newY] != '*') { //ограничения по краям карты и камням и шипам
             matrix[playerX][playerY] = ' ';
             playerX = newX;
             playerY = newY;
             matrix[playerX][playerY] = '@';
         }
-        if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10 && matrix[newX][newY] == '*'){ //если игрок сталкивается с шипами, то здоровье уменьшается
+        if (newX >= 0 && newX < 20 && newY >= 0 && newY < 20 && matrix[newX][newY] == '*'){ //если игрок сталкивается с шипами, то здоровье уменьшается
             hp--;
         }
         if (hp == 0) { //если хп = 0, выход из игры
