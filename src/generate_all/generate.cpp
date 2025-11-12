@@ -1,4 +1,4 @@
-#include "generate_functions.hpp"
+#include "C:\Users\KAVychuzhin\Documents\GitHub\project_RPG_GAME\include\generate_functions.hpp"
 
 #include <iostream>
 #include <cstdlib>

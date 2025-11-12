@@ -8,4 +8,4 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 # Сказать программе, что должен быть исполняемый файл
-add_executable("${PROJECT_NAME}"main.cpp generate.cpp instruction.cpp map_generate_include.cpp movement_mechanics.cpp start_end_screen.cpp)
+add_executable("${PROJECT_NAME}" src/main/main.cpp src/generate_all/generate.cpp src/map_all/map_generate_include.cpp src/movement/movement_mechanics.cpp src/text_info/instruction.cpp src/text_info/start_end_screen.cpp)
