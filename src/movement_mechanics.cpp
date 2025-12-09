@@ -7,7 +7,7 @@ void wasd(int& hp, int& coins, int& playerX, int& playerY, int& enemyHP, int& en
     while (true) {
         std::cout << "\033[1J"; //вот эта имбулька очищает экран от кала
 
-        printMap(hp, coins, in_market, market_x, market_y, heart, princess_x, princess_y, key);
+        printMap(hp, coins, in_market, market_x, market_y, heart, princess_x, princess_y, key, princess_saved);
         
         char move = _getch(); //не ждем нажатия enter после ввода символа
         move = std::tolower(move);
@@ -106,13 +106,7 @@ void wasd(int& hp, int& coins, int& playerX, int& playerY, int& enemyHP, int& en
             playerX = newX;
             playerY = newY;
             matrix[playerX][playerY] = 'P';
-            if (key == 1){
-                std::cout << "Спасибо, вы спасли меня!" << std::endl;
-                break;
-            }
-            else{
-                std::cout << "Для спасеня нужен ключ, купите его за сердце монстра у торговца!" << std::endl;
-            }
+            princess_saved = true;
 		}        
 
         if (newX >= 0 && newX < 20 && newY >= 0 && newY < 20 && matrix[newX][newY] != '#' && matrix[newX][newY] != '*' && matrix[newX][newY] != 'M') { //ограничения по краям карты и камням и шипам

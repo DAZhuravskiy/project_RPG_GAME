@@ -71,5 +71,4 @@ void printMap(int& hp, int& coins, bool& in_market, int market_x, int market_y, 
             for (int j = 0; j < 20; j++) {
                 std::cout << matrix[i][j] << ' ';
             }
-        }
 }
