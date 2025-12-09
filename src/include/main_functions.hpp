@@ -1,4 +1,4 @@
 #pragma once
 
-void generate();
+bool generate();
 void instruction();

@@ -9,7 +9,9 @@ int main() {
     start_screen();
 
     instruction();
-    generate();
+    bool win = generate();
 
-    end_screen();
+    if (win) {
+        end_screen();
+    }
 }

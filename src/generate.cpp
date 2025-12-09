@@ -7,7 +7,10 @@
 
 
 
-void generate() {
+bool generate() {
+
+    bool game_won = false;
+
     srand(time(NULL)); //вот эта штука позволяет реально рандомить карту, а не выводить одни и те же комбинации
     
     int hp = 3; //Здоровье персонажа
@@ -37,7 +40,8 @@ void generate() {
     add_player(playerX, playerY); // добавляем игрока
     
     
-    printMap(hp, coins, in_market, market_x, market_y, heart, princess_x, princess_y, key, princess_saved);
+    printMap(hp, coins, in_market, market_x, market_y, heart, princess_x, princess_y, key, princess_saved, game_won);
 
-    wasd(hp, coins, playerX, playerY, enemyHP, enemyX, enemyY, in_market, market_x, market_y, heart, princess_x, princess_y, key, princess_saved);
+    bool result = wasd(hp, coins, playerX, playerY, enemyHP, enemyX, enemyY, in_market, market_x, market_y, heart, princess_x, princess_y, key, princess_saved, game_won);
+    return result;
 }
