@@ -1,4 +1,4 @@
-#include "C:\Users\KAVychuzhin\Documents\GitHub\project_RPG_GAME\include\generate_functions.hpp"
+#include "include\generate_functions.hpp"
 
 #include <iostream>
 #include <cstdlib>
@@ -21,12 +21,17 @@ void generate() {
 
     int enemyHP = 2 + rand() % 4; // от 2 до 5 хп у врага
 
+    bool in_market = false;
+    int market_x = (rand() % 10);
+    int market_y = (rand() % 10);
+
     matrix_create(); //генерация матрицы (matrix_create)
     add_in_matrix(); // добавление объектов в матрицу (matrix_includes)
     add_enemies(enemyX, enemyY); // добавляем врагов
     add_player(playerX, playerY); // добавляем игрока
     
-    printMap(hp, coins);
+    
+    printMap(hp, coins, in_market, market_x, market_y);
 
-    wasd(hp, coins, playerX, playerY, enemyHP, enemyX, enemyY);
+    wasd(hp, coins, playerX, playerY, enemyHP, enemyX, enemyY, in_market, market_x, market_y);
 }
