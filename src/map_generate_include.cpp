@@ -53,20 +53,32 @@ void matrix_create(){ //создаем матрицу 10x10 заполненну
     matrix = std::vector<std::vector<char>>(20, std::vector<char>(20, ' '));
 }
 
-void printMap(int& hp, int& coins, bool& in_market, int market_x, int market_y, int heart, int princess_x, int princess_y, int key) {
-        std::cout << "\nТекущее здоровье = " << hp <<  "\nТекущий баланс = " << coins << std::endl; //вывод количества здоровья
-        if (in_market){ // даник тебе сюда (реализуй свитч кейс где пользователь вводит номер операции - в зависимости от выбора отнимается или coins или heart, добавялестя hp или key соответсвтенно)
-            std::cout << "Вы зашли в магазин, вот что у нас есть:" << std::endl;
-            std::cout << "1. Увеличить здоровье - 2 монеты" << std::endl;
-            std::cout << "2. Ключ от подземелья - сердце монстра. У вас сердец - " << heart << std::endl;
-            in_market = false;
-        }
-        matrix[market_x][market_y] = 'M';
-        matrix[princess_x][princess_y] = 'P';
-        for (int i = 0; i < 20; i++) { //выводим матрицу
-            std::cout << std::endl;
-            for (int j = 0; j < 20; j++) {
-                std::cout << matrix[i][j] << ' ';
+void printMap(int& hp, int& coins, bool& in_market, int market_x, int market_y, int heart, int princess_x, int princess_y, int key, bool& princess_saved) {
+    while (true){
+            std::cout << "\nТекущее здоровье = " << hp <<  "\nТекущий баланс = " << coins << std::endl; //вывод количества здоровья
+            if (in_market){ // даник тебе сюда (реализуй свитч кейс где пользователь вводит номер операции - в зависимости от выбора отнимается или coins или heart, добавялестя hp или key соответсвтенно)
+                std::cout << "Вы зашли в магазин, вот что у нас есть:" << std::endl;
+                std::cout << "1. Увеличить здоровье - 2 монеты" << std::endl;
+                std::cout << "2. Ключ от подземелья - сердце монстра. У вас сердец - " << heart << std::endl;
+                in_market = false;
             }
-        }
+            matrix[market_x][market_y] = 'M';
+            matrix[princess_x][princess_y] = 'P';
+            if (princess_saved == true){
+                if (key == 1){
+                    std::cout << "Спасибо, вы спасли меня, мой герой!" << std::endl;
+                    break;
+                }
+                if (key == 0){
+                    std::cout << "Нужен ключ, чтобы октрыть клетку! Торопитесь, мой герой!" << std::endl;
+                }
+                princess_saved = false;
+            }
+            for (int i = 0; i < 20; i++) { //выводим матрицу
+                std::cout << std::endl;
+                for (int j = 0; j < 20; j++) {
+                    std::cout << matrix[i][j] << ' ';
+                }
+            }
+    }
 }

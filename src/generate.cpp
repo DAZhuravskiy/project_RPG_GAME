@@ -26,7 +26,7 @@ void generate() {
     int market_x = (rand() % 10);
     int market_y = (rand() % 10);
 
-    bool if_heart = false;
+    bool princess_saved = false;
     int key = 0;
     int princess_x = (rand() % 10);
     int princess_y = (rand() % 10);
@@ -37,7 +37,7 @@ void generate() {
     add_player(playerX, playerY); // добавляем игрока
     
     
-    printMap(hp, coins, in_market, market_x, market_y, heart, princess_x, princess_y, key);
+    printMap(hp, coins, in_market, market_x, market_y, heart, princess_x, princess_y, key, princess_saved);
 
-    wasd(hp, coins, playerX, playerY, enemyHP, enemyX, enemyY, in_market, market_x, market_y, heart, princess_x, princess_y, key);
+    wasd(hp, coins, playerX, playerY, enemyHP, enemyX, enemyY, in_market, market_x, market_y, heart, princess_x, princess_y, key, princess_saved);
 }
