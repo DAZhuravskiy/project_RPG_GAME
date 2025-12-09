@@ -1,13 +1,13 @@
-#include "C:\Users\KAVychuzhin\Documents\GitHub\project_RPG_GAME\include\generate_functions.hpp"
+#include "include\generate_functions.hpp"
 
 #include <iostream>
 #include <conio.h>
 
-void wasd(int& hp, int& coins, int& playerX, int& playerY, int& enemyHP, int& enemyX, int& enemyY){
+void wasd(int& hp, int& coins, int& playerX, int& playerY, int& enemyHP, int& enemyX, int& enemyY, bool& in_market, int market_x, int market_y){
     while (true) {
         std::cout << "\033[1J"; //вот эта имбулька очищает экран от кала
 
-        printMap(hp, coins);
+        printMap(hp, coins, in_market, market_x, market_y);
         
         char move = _getch(); //не ждем нажатия enter после ввода символа
         move = std::tolower(move);
@@ -50,7 +50,15 @@ void wasd(int& hp, int& coins, int& playerX, int& playerY, int& enemyHP, int& en
             }
 		}
 
-        if (newX >= 0 && newX < 20 && newY >= 0 && newY < 20 && matrix[newX][newY] != '#' && matrix[newX][newY] != '*') { //ограничения по краям карты и камням и шипам
+        if (matrix[newX][newY] == 'M') {
+            matrix[playerX][playerY] = ' ';
+            playerX = newX;
+            playerY = newY;
+            matrix[playerX][playerY] = 'M';
+            in_market = true;
+		}
+
+        if (newX >= 0 && newX < 20 && newY >= 0 && newY < 20 && matrix[newX][newY] != '#' && matrix[newX][newY] != '*' && matrix[newX][newY] != 'M') { //ограничения по краям карты и камням и шипам
             matrix[playerX][playerY] = ' ';
             playerX = newX;
             playerY = newY;

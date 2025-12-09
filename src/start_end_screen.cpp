@@ -1,4 +1,4 @@
-#include "C:\Users\KAVychuzhin\Documents\GitHub\project_RPG_GAME\include\start_end_screen.hpp"
+#include "include\start_end_screen.hpp"
 
 #include <iostream>
 #include <conio.h>
