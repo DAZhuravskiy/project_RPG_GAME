@@ -1,4 +1,4 @@
-#include "generate_functions.hpp"
+#include "headers/generate_functions.hpp"
 #include <iostream>
 
 bool wasd(char move, int playerX, int playerY, int& newX, int& newY, bool& flag){

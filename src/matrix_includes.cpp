@@ -1,5 +1,5 @@
 #include <iostream>
-#include "generate_functions.hpp"
+#include "headers/generate_functions.hpp"
 
 
 void add_in_matrix(){

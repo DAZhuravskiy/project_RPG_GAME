@@ -1,4 +1,4 @@
-#include "generate_functions.hpp"
+#include "headers/generate_functions.hpp"
 #include <iostream>
 
 std::vector<std::vector<char>> matrix; //создание матрицы
