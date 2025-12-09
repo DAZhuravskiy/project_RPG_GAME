@@ -3,7 +3,7 @@
 #include <iostream>
 #include <conio.h>
 
-void wasd(int& hp, int& coins, int& playerX, int& playerY, int& enemyHP, int& enemyX, int& enemyY, bool& in_market, int market_x, int market_y, int heart, int princess_x, int princess_y, int key, bool& princess_saved){
+void wasd(int& hp, int& coins, int& playerX, int& playerY, int& enemyHP, int& enemyX, int& enemyY, bool& in_market, int market_x, int market_y, int& heart, int princess_x, int princess_y, int& key){
     while (true) {
         std::cout << "\033[1J"; //вот эта имбулька очищает экран от кала
 
@@ -21,6 +21,49 @@ void wasd(int& hp, int& coins, int& playerX, int& playerY, int& enemyHP, int& en
             std::cout << "Ваш баланс монет: " << coins << std::endl;
             continue;
         }
+
+
+    
+    if (in_market) {
+    switch (move) {
+    case '1':  // покупка HP за 2 монеты
+        if (coins >= 2) {
+            coins -= 2;
+            hp += 1;
+            std::cout << "Вы купили +1 к здоровью! Сейчас здоровье: " << hp << std::endl;
+        } else {
+            std::cout << "Недостаточно монет для покупки здоровья." << std::endl;
+        }
+        in_market = false; // выходим из магазина
+        _getch();
+        continue;
+
+    case '2':  // покупка ключа за сердце монстра
+        if (key == 1) {
+            std::cout << "У вас уже есть ключ, второй не нужен." << std::endl;
+        } else if (heart >= 1) {
+            heart -= 1;
+            key = 1;
+            std::cout << "Вы купили ключ от подземелья!" << std::endl;
+        } else {
+            std::cout << "У вас нет сердца монстра для покупки ключа." << std::endl;
+        }
+        in_market = false;
+        _getch();
+        continue;
+
+    case '0':  // выйти из магазина
+        std::cout << "Вы вышли из магазина." << std::endl;
+        in_market = false;
+        _getch();
+        continue;
+
+    default:
+        std::cout << "В магазине нужно нажать 1, 2 или 0 для выхода." << std::endl;
+        _getch();
+        continue;
+    }
+}
 
         int newX = playerX;
         int newY = playerY;
