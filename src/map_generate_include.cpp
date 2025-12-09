@@ -54,7 +54,6 @@ void matrix_create(){ //создаем матрицу 10x10 заполненну
 }
 
 void printMap(int& hp, int& coins, bool& in_market, int market_x, int market_y, int heart, int princess_x, int princess_y, int key, bool& princess_saved) {
-    while (true){
             std::cout << "\nТекущее здоровье = " << hp <<  "\nТекущий баланс = " << coins << std::endl; //вывод количества здоровья
             if (in_market){ // даник тебе сюда (реализуй свитч кейс где пользователь вводит номер операции - в зависимости от выбора отнимается или coins или heart, добавялестя hp или key соответсвтенно)
                 std::cout << "Вы зашли в магазин, вот что у нас есть:" << std::endl;
@@ -67,7 +66,6 @@ void printMap(int& hp, int& coins, bool& in_market, int market_x, int market_y, 
             if (princess_saved == true){
                 if (key == 1){
                     std::cout << "Спасибо, вы спасли меня, мой герой!" << std::endl;
-                    break;
                 }
                 if (key == 0){
                     std::cout << "Нужен ключ, чтобы октрыть клетку! Торопитесь, мой герой!" << std::endl;
@@ -80,5 +78,4 @@ void printMap(int& hp, int& coins, bool& in_market, int market_x, int market_y, 
                     std::cout << matrix[i][j] << ' ';
                 }
             }
-    }
 }
