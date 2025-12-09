@@ -59,7 +59,10 @@ void printMap(int& hp, int& coins, bool& in_market, int market_x, int market_y, 
             std::cout << "Вы зашли в магазин, вот что у нас есть:" << std::endl;
             std::cout << "1. Увеличить здоровье - 2 монеты" << std::endl;
             std::cout << "2. Ключ от подземелья - сердце монстра. У вас сердец - " << heart << std::endl;
-            in_market = false;
+            std::cout << "0. Выйти из магазина" << std::endl;
+            if (key == 1) {
+                std::cout << "У вас уже есть ключ." << std::endl;
+            }
         }
         matrix[market_x][market_y] = 'M';
         matrix[princess_x][princess_y] = 'P';
