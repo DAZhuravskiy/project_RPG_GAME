@@ -12,6 +12,7 @@ void generate() {
     
     int hp = 3; //Здоровье персонажа
     int coins = 0; // Баланс игрока
+    int heart = 0; // дроп сердца с врага
 
     int enemyX; //координаты врага
     int enemyY;
@@ -25,13 +26,18 @@ void generate() {
     int market_x = (rand() % 10);
     int market_y = (rand() % 10);
 
+    bool if_heart = false;
+    int key = 0;
+    int princess_x = (rand() % 10);
+    int princess_y = (rand() % 10);
+
     matrix_create(); //генерация матрицы (matrix_create)
     add_in_matrix(); // добавление объектов в матрицу (matrix_includes)
     add_enemies(enemyX, enemyY); // добавляем врагов
     add_player(playerX, playerY); // добавляем игрока
     
     
-    printMap(hp, coins, in_market, market_x, market_y);
+    printMap(hp, coins, in_market, market_x, market_y, heart, princess_x, princess_y, key);
 
-    wasd(hp, coins, playerX, playerY, enemyHP, enemyX, enemyY, in_market, market_x, market_y);
+    wasd(hp, coins, playerX, playerY, enemyHP, enemyX, enemyY, in_market, market_x, market_y, heart, princess_x, princess_y, key);
 }
